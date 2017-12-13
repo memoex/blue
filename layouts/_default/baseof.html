@@ -4,9 +4,13 @@
     {{ partial "head.html" . }}
     </head>
 <body>
-    <section id="wrapper">
-        {{ block "main" . -}}{{- end }}
-    </section>
-    {{ partial "footer.html" . }}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                {{ block "main" . -}}{{- end }}
+            </div>
+        </div>
+        {{ partial "footer.html" . }}
+    </div>
 </body>
 </html>
