@@ -1,16 +1,41 @@
 {{ define "main" -}}
 
-<h1>{{ .Title }}</h1>
-
-<ul class="posts">
-{{ range .Data.Pages -}}
-  <li>
-    <span>
-        <time>{{ .Date.Format "2006-06-02" }}</time>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </span>
-  </li>
-{{- end }}
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{ .Title }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <nav>
+                <ul class="nav justify-content-start">
+                    {{ range .Site.Menus.main  }}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
+                        </li>
+                    {{ end  }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="container">
+                {{ range .Data.Pages -}}
+                    <div class="row">
+                        <div class="">
+                            <time>{{ .Date.Format "2006-06-02" }}</time>
+                        </div>
+                        <div class="col">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </div>
+                    </div>
+                  </li>
+                {{- end }}
+            </div>
+        </div>
+    </div>
+</div>
 
 {{- end }}
