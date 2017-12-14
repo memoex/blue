@@ -2,29 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <p>{{ .Title }}</p>
-        </div>
-        <div class="col">
-            {{ partial "nav" . }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="container">
-                {{ range .Data.Pages -}}
-                    <div class="row">
-                        <div class="col-4 text-right">
-                            <time>{{ .Date.Format "2006-06-02" }}</time>
-                        </div>
-                        <div class="col-8">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </div>
-                    </div>
-                  </li>
-                {{- end }}
-            </div>
-        </div>
+        {{ partial "posts" . }}
     </div>
 </div>
 

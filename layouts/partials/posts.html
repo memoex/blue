@@ -1,0 +1,38 @@
+<div class="container">
+    {{ range .Data.Pages -}}
+        <div class="row mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="font-weight-bold"><a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <time class="text-secondary">{{ .Date.Format "Jan 2, 2006" }}</time>
+                    </div>
+                </div>
+                <div class="row mx-1 my-3">
+                    <div class="col">
+                        {{ .Summary }}
+                    </div>
+                </div>
+                <div class="row border border-light"></div>
+                <div class="row justify-content-end my-3">
+                    <div class="col align-item-start">
+                        <ul class="nav">
+                            {{ range .Params.tags  }}
+                                <li class="nav-item">
+                                    <a class="btn btn-light mx-2" href="{{ "/tags/" | relLangURL  }}{{ . | urlize  }}">{{ .  }}</a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                    <div class="col-1">
+                        <a class="text-dark" href="{{ .Permalink  }}">→</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{- end }}
+</div>

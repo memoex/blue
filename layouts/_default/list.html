@@ -1,18 +1,10 @@
 {{ define "main" -}}
-
-{{ partial "nav" . }}
-
-<h1>{{ .Title }}</h1>
-
-<ul class="posts">
-{{ range .Data.Pages -}}
-  <li>
-    <span>
-        <time>{{ .Date.Format "2006-06-02" }}</time>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </span>
-  </li>
-{{- end }}
-</ul>
-
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="font-weight-bold">{{ .Title }}</h1>
+        </div>
+        <div class="row">
+            {{ partial "posts" . }}
+        </div>
+    </div>
 {{- end }}
