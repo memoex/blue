@@ -1,0 +1,9 @@
+<nav>
+    <ul class="nav justify-content-start">
+        {{ range .Site.Menus.main  }}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
+            </li>
+        {{ end  }}
+    </ul>
+</nav>

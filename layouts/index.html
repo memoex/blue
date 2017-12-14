@@ -3,20 +3,10 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>{{ .Title }}</h1>
+            <p>{{ .Title }}</p>
         </div>
-    </div>
-    <div class="row">
         <div class="col">
-            <nav>
-                <ul class="nav justify-content-start">
-                    {{ range .Site.Menus.main  }}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
-                        </li>
-                    {{ end  }}
-                </ul>
-            </nav>
+            {{ partial "nav" . }}
         </div>
     </div>
     <div class="row">
@@ -24,10 +14,10 @@
             <div class="container">
                 {{ range .Data.Pages -}}
                     <div class="row">
-                        <div class="">
+                        <div class="col-4 text-right">
                             <time>{{ .Date.Format "2006-06-02" }}</time>
                         </div>
-                        <div class="col">
+                        <div class="col-8">
                             <a href="{{ .Permalink }}">{{ .Title }}</a>
                         </div>
                     </div>
