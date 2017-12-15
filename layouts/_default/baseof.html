@@ -3,18 +3,18 @@
 	<head>
     {{ partial "head.html" . }}
     </head>
-<body>
+<body class="mdl-color--grey-50">
     <div class="container">
         <div id="site-title" class="my-5 py-3 row justify-content-center">
             <h1 class="font-weight-bold">{{ .Site.Title }}</h1>
         </div>
-        <div id="site-nav" class="my-4 py-2 row justify-content-center">
+        <div id="site-nav" class="mdl-shadow--2dp mdl-color--white my-4 row justify-content-center">
             {{ partial "nav" . }}
         </div>
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-9">
                 {{ block "main" . -}}{{- end }}
             </div>
         </div>

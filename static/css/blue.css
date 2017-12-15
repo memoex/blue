@@ -12,7 +12,6 @@ body{
         sans-serif;
 }
 
-#site-nav{
-    border: 2px solid #ccc;
-    border-width: 1px 0px;
+a:hover{
+    text-decoration: none !important;
 }

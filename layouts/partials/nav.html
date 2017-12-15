@@ -1,8 +1,8 @@
 <nav>
     <ul class="nav">
         {{ range .Site.Menus.main }}
-            <li class="nav-item mx-3">
-                <a class="nav-link text-muted" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
+            <li class="nav-item">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect my-2 px-5 nav-link text-muted" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
             </li>
         {{ end  }}
     </ul>

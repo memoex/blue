@@ -1,10 +1,10 @@
 <div class="container">
     {{ range .Data.Pages -}}
         <div class="row mt-4">
-            <div class="container">
+            <div class="container px-5 mdl-color--white mdl-shadow--2dp">
                 <div class="row">
                     <div class="col">
-                        <h2 class="font-weight-bold"><a class="text-dark" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                        <h1><a class="text-dark font-weight-bold" href="{{ .Permalink }}">{{ .Title }}</a></h1>
                     </div>
                 </div>
                 <div class="row">
@@ -23,13 +23,15 @@
                         <ul class="nav">
                             {{ range .Params.tags  }}
                                 <li class="nav-item">
-                                    <a class="btn btn-light mx-2" href="{{ "/tags/" | relLangURL  }}{{ . | urlize  }}">{{ .  }}</a>
+                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mx-2" onclick="location.href='{{ "/tags/" | relLangURL  }}{{ . | urlize  }}'">{{ . }}</button>
                                 </li>
                             {{ end }}
                         </ul>
                     </div>
                     <div class="col-1">
-                        <a class="text-dark" href="{{ .Permalink  }}">→</a>
+                        <a class="mdl-button mdl-js-button mdl-js-ripple-effect text-dark" href="{{ .Permalink  }}">
+                            <i class="material-icons md-24">arrow_forward</i>
+                        </a>
                     </div>
                 </div>
             </div>
