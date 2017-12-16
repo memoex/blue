@@ -1,16 +1,16 @@
 {{ define "main" -}}
-<div class="container mdl-color--white px-5 mt-4 mdl-shadow--2dp">
+<div class="container mdl-color--white">
     <div class="row">
         <div class="col">
-            <h1 class="mt-4 font-weight-bold">{{ .Title }}</h1>
+            <h1 class="font-weight-bold">{{ .Title }}</h1>
         </div>
     </div>
     <div class="row">
-        <div class="col text-secondary">
-            <p>{{ .Date.Format "Jan 2, 2006" }}</p>
+        <div class="col mdl-color-text--blue-grey">
+            <time>{{ .Date.Format "Jan 2, 2006" }}</time>
         </div>
     </div>
-    <div class="row my-4 ml-1">
+    <div class="row mt-5">
         <div class="col">
             {{ .Content }}
         </div>

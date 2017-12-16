@@ -1,38 +1,39 @@
 <div class="container">
     {{ range .Data.Pages -}}
-        <div class="row mt-4">
-            <div class="container px-5 mdl-color--white mdl-shadow--2dp">
+        <div class="row mb-5">
+            <div class="container mdl-color--white">
                 <div class="row">
                     <div class="col">
                         <h1><a class="text-dark font-weight-bold" href="{{ .Permalink }}">{{ .Title }}</a></h1>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <time class="text-secondary">{{ .Date.Format "Jan 2, 2006" }}</time>
+                    <div class="col mdl-color-text--blue-grey">
+                        <time>{{ .Date.Format "Jan 2, 2006" }}</time>
                     </div>
                 </div>
-                <div class="row mx-1 my-3">
-                    <div class="col">
+                <div class="row">
+                    <div class="col mt-5">
                         {{ .Summary }}
                     </div>
                 </div>
-                <div class="row border border-light"></div>
-                <div class="row justify-content-end my-3">
-                    <div class="col align-item-start">
-                        <ul class="nav">
+                <div class="row my-2">
+                    <div class="col">
+                        <ul class="nav justify-content-end">
                             {{ range .Params.tags  }}
                                 <li class="nav-item">
-                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mx-2" onclick="location.href='{{ "/tags/" | relLangURL  }}{{ . | urlize  }}'">{{ . }}</button>
+                                    <button type="button" class="mdl-button mdl-js-button  mdl-js-ripple-effect mx-2" onclick="location.href='{{ "/tags/" | relLangURL  }}{{ . | urlize  }}'">{{ . }}</button>
                                 </li>
                             {{ end }}
                         </ul>
                     </div>
-                    <div class="col-1">
-                        <a class="mdl-button mdl-js-button mdl-js-ripple-effect text-dark" href="{{ .Permalink  }}">
-                            <i class="material-icons md-24">arrow_forward</i>
-                        </a>
-                    </div>
+                </div>
+                <div class="row border mdl-color-grey-50"></div>
+                <div class="row">
+                    <button type="buttion" onclick="location.href='{{ .Permalink }}'"
+                        class="mdl-button mdl-js-button col align-items-end">
+                        <i class="material-icons md-24">arrow_forward</i>
+                    </button>
                 </div>
             </div>
         </div>
