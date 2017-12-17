@@ -1,4 +1,4 @@
-<div class="container mdl-color--white">
+<div class="container mdl-color--white mdl-shadow--2dp rounded-bottom">
     <ul class="row nav justify-content-around">
         {{ range .Site.Menus.main }}
             <a class="nav-item col px-3 mdl-button mdl-js-button mdl-button--primary nav-link" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
