@@ -6,8 +6,22 @@
         </div>
     </div>
     <div class="row">
-        <div class="col mdl-color-text--blue-grey">
-            <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+        <div class="align-self-center col-auto pr-0"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></div>
+        <div class="align-self-center col-auto mdl-color-text--primary">
+            <time class="font-weight-bold">{{ .Date.Format "Jan 2, 2006" }}</time>
+        </div>
+        {{ if .Params.tags }}
+            <div class="align-self-center col-auto pr-0"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></div>
+        {{ end }}
+        <div class="col pl-1">
+            <ul class="nav">
+                {{ range .Params.tags  }}
+                    <li class="nav-item">
+                        <button class="px-1 mdl-button mdl-js-button mdl-button--primary"
+                            onclick="location.href='{{ "/tags/" | relLangURL  }}{{ . | urlize  }}'">{{ . }}</button>
+                    </li>
+                {{ end }}
+            </ul>
         </div>
     </div>
     <div class="row mt-5">
