@@ -17,11 +17,7 @@
         </div>
     </div>
     <div class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8">
-                {{ block "main" . -}}{{- end }}
-            </div>
-        </div>
+        {{ block "main" . -}}{{- end }}
         <div class="row">
             {{ partial "footer.html" . }}
         </div>

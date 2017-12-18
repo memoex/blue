@@ -29,10 +29,19 @@ body {
 }
 
 a {
-    color: #607D8B;
+    color: #E91E63;
 }
 
 h2 {
     color: #3F51B5;
+}
+
+h3 {
+    color: #536DFE;
+}
+
+h2,h3,h4 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
