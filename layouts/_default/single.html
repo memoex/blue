@@ -1,7 +1,7 @@
 {{ define "main" -}}
 <div class="row justify-content-end">
     <div class="col col-lg-8">
-        <div class="mdl-shadow--2dp py-4 rounded container mdl-color--white">
+        <div class="mdl-shadow--2dp py-4 rounded container mdl-color--white content">
             <div class="row">
                 <div class="col">
                     <h1 class="font-weight-bold">{{ .Title }}</h1>
@@ -34,6 +34,11 @@
         </div>
     </div>
     <div class="col-0 col-lg-2">
+        <div class="container">
+            <div class="row">
+                <div class="toc col"></div>
+            </div>
+        </div>
     </div>
 </div>
 {{- end}}

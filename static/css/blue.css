@@ -44,3 +44,11 @@ h2,h3,h4 {
     padding-top: 1.5rem;
 }
 
+
+/* toc */
+.toc-wrapper {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 20px;
+}
+
