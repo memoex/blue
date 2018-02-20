@@ -1,0 +1,33 @@
+{{ define "main" -}}
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+                {{ partial "note-sidebar" . }}
+            </div>
+
+            <div class="d-none d-xl-block col-xl-2 bd-toc">
+            </div>
+
+            <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+                <h1 id="content" class="bd-title">{{ .Title }}</h1>
+                <p class="bd-lead"></p>
+
+                <div class="align-self-center">
+                    <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
+                    <time class="font-weight-bold align-self-center mdl-color-text--primary">{{ .Date.Format "Jan 2, 2006" }}</time>
+                    {{ if .Params.tags }}
+                        <i class="pl-3 fa fa-tags fa-lg" aria-hidden="true"></i>
+                        <ul class="nav d-inline">
+                            {{ range .Params.tags  }}
+                                <li class="nav-item d-inline">
+                                    <a class="text-capitalize" href='{{ "/tags/" | relLangURL  }}{{ . | urlize  }}'>{{ . }}</a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    {{ end }}
+                </div>
+                {{ .Content }}
+            </main>
+        </div>
+    </div>
+{{- end}}

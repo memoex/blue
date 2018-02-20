@@ -1,7 +1,14 @@
-<div class="container mdl-color--white mdl-shadow--2dp rounded">
-    <div class="row justify-content-around">
+<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+    <a class="navbar-brand mr-0 mr-md-2" href="{{ .Site.BaseURL }}/" aria-label="Mr.Blue">
+        <span>Mr.Blue</span>
+    </a>
+    <div class="navbar-nav-scroll">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
         {{ range .Site.Menus.main }}
-            <a class="col px-3 mdl-button mdl-js-button mdl-button--primary" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
+            </li>
         {{ end  }}
+        </ul>
     </div>
-</div>
+</header>

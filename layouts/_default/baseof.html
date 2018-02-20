@@ -1,26 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ .Site.LanguageCode | default "en" }}">
 	<head>
         {{ partial "head.html" . }}
     </head>
-<body class="colorful">
-    <div class="container">
-        <div class="mt-4 row justify-content-center">
-            <div class="col-12 col-lg-8">
-                <h1 id="site-title" class="display-2 mdl-color-text--grey-800 mdl-HH rounded-top my-0 py-5 font-weight-bold text-center">{{ .Site.Title }}</h1>
-            </div>
-        </div>
-        <div class="row justify-content-center mt-1">
-            <div class="col-12 col-lg-8">
-                {{ partial "nav" . }}
-            </div>
-        </div>
-    </div>
-    <div class="container my-5">
+    <body>
+
+        {{ partial "nav" . }}
+
         {{ block "main" . -}}{{- end }}
-        <div class="row">
-            {{ partial "footer.html" . }}
-        </div>
-    </div>
-</body>
+
+        {{ partial "footer.html" . }}
+        {{ partial "scripts.html" . }}
+    </body>
 </html>
