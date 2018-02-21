@@ -1,0 +1,14 @@
+<div class="mb-5">
+    <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
+    <time class="font-weight-bold align-self-center mdl-color-text--primary">{{ .Date.Format "Jan 2, 2006" }}</time>
+    {{ if .Params.tags }}
+        <i class="pl-3 fa fa-tags fa-lg" aria-hidden="true"></i>
+        <ul class="nav d-inline">
+            {{ range .Params.tags  }}
+                <li class="nav-item d-inline">
+                    <a class="text-capitalize" href='{{ "/tags/" | relLangURL  }}{{ . | urlize  }}'>{{ . }}</a>
+                </li>
+            {{ end }}
+        </ul>
+    {{ end }}
+</div>

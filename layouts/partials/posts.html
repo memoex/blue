@@ -1,44 +1,28 @@
-<div class="container">
-    {{ range .Data.Pages -}}
-        <div class="row">
-            <div class="pt-4 mb-5 container mdl-color--white rounded mdl-shadow--4dp">
-                <div class="row">
-                    <div class="col">
-                        <h1><a class="text-dark font-weight-bold" href="{{ .Permalink }}">{{ .Title }}</a></h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="align-self-center col-auto pr-0"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></div>
-                    <div class="align-self-center col-auto mdl-color-text--primary">
-                        <time class="font-weight-bold">{{ .Date.Format "Jan 2, 2006" }}</time>
-                    </div>
-                    {{ if .Params.tags }}
-                        <div class="align-self-center col-auto pr-0"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></div>
-                    {{ end }}
-                    <div class="col pl-1">
-                        <ul class="nav">
-                            {{ range .Params.tags  }}
-                                <li class="nav-item">
-                                    <button class="px-1 mdl-button mdl-js-button mdl-button--primary"
-                                        onclick="location.href='{{ "/tags/" | relLangURL  }}{{ . | urlize  }}'">{{ . }}</button>
-                                </li>
-                            {{ end }}
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mt-5">
-                        {{ .Summary }}
-                    </div>
-                </div>
-                <div class="row border mdl-color-grey-50"></div>
-                <div class="row">
-                    <button type="buttion" onclick="location.href='{{ .Permalink }}'"
-                        class="mdl-button mdl-js-button col align-items-end">
-                        <i class="mdl-color-text--primary fa fa-chevron-right fa-lg" aria-hidden="true"></i>
-                    </button>
-                </div>
+{{ if or ( eq .Kind "page" ) ( eq .Kind "section" ) }}
+    {{ $.Scratch.Set "posts" (where .Site.RegularPages "Section" .Section) }}
+{{ else if eq .Kind "home" }}
+    {{ $.Scratch.Set "posts" (where .Site.RegularPages "Section" "post") }}
+{{ else }}
+    {{ $.Scratch.Set "posts" .Data.Pages }}
+{{ end }}
+
+{{ $posts := $.Scratch.Get "posts" }}
+
+<div class="p-0 container-fluid mdl-color--white rounded">
+    {{ range $posts -}}
+        <div class="col-12 mb-5">
+            <h1 class="bd-title">
+                <a class="text-dark bd-title" href="{{ .Permalink }}">{{ .Title }}</a>
+            </h1>
+            {{ partial "post-info" . }}
+            <div class="bd-content">
+                {{ .Summary }}
             </div>
+
+            <button type="buttion" onclick="location.href='{{ .Permalink }}'"
+                class="mdl-button mdl-js-button col align-items-end border">
+                <i class="mdl-color-text--primary fa fa-chevron-right fa-lg" aria-hidden="true"></i>
+            </button>
         </div>
     {{- end }}
 </div>

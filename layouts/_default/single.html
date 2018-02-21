@@ -1,44 +1,19 @@
 {{ define "main" -}}
-<div class="row justify-content-end">
-    <div class="col col-lg-8">
-        <div class="mdl-shadow--2dp py-4 rounded container mdl-color--white content">
-            <div class="row">
-                <div class="col">
-                    <h1 class="font-weight-bold">{{ .Title }}</h1>
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap justify-content-center">
+            <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5" role="main">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="bd-title">{{ .Title }}</h1>
+                            {{ partial "post-info" . }}
+                            <div class="bd-content">
+                                {{ .Content }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="align-self-center col-auto pr-0"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i></div>
-                <div class="align-self-center col-auto mdl-color-text--primary">
-                    <time class="font-weight-bold">{{ .Date.Format "Jan 2, 2006" }}</time>
-                </div>
-                {{ if .Params.tags }}
-                    <div class="align-self-center col-auto pr-0"><i class="fa fa-tags fa-lg" aria-hidden="true"></i></div>
-                {{ end }}
-                <div class="col pl-1">
-                    <ul class="nav">
-                        {{ range .Params.tags  }}
-                            <li class="nav-item">
-                                <button class="px-1 mdl-button mdl-js-button mdl-button--primary"
-                                    onclick="location.href='{{ "/tags/" | relLangURL  }}{{ . | urlize  }}'">{{ . }}</button>
-                            </li>
-                        {{ end }}
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col">
-                    {{ .Content }}
-                </div>
-            </div>
+            </main>
         </div>
     </div>
-    <div class="col-0 col-lg-2">
-        <div class="container">
-            <div class="row">
-                <div class="toc col"></div>
-            </div>
-        </div>
-    </div>
-</div>
 {{- end}}

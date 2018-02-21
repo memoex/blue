@@ -1,13 +1,13 @@
 {{ define "main" -}}
-
-<div class="row justify-content-center">
-    <div class="col col-lg-8">
-        <div class="container">
-            <div class="row">
-                {{ partial "posts" . }}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
+            <div class="container-fluid">
+                <div class="row">
+                    {{ partial "posts" . }}
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 {{- end }}
