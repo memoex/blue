@@ -12,7 +12,12 @@
     {{ $.Scratch.Set "posts" .Data.Pages }}
 {{ end }}
 
+{{ if eq .Section "note" }}
+{{ $.Scratch.Set "posts" (sort ($.Scratch.Get "posts") "Title") }}
+{{ end }}
+
 {{ $posts := $.Scratch.Get "posts" }}
+
 <nav id="bd-docs-nav" class="collapse bd-links">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
