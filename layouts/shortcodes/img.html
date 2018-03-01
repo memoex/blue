@@ -1,0 +1,7 @@
+<div class="container-fluid px-0">
+    <img class="col mt-5 px-0 rounded" src="{{ .Get 0 }}" />
+
+    {{ if len .Params | eq 2 }}
+    <p class='mb-5 mt-2 text-center font-weight-bold'>{{ .Get 1 }}</p>
+    {{ end }}
+</div>
