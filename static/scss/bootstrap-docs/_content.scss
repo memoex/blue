@@ -1,6 +1,13 @@
 // stylelint-disable no-duplicate-selectors, selector-max-combinators, selector-max-compound-selectors, selector-max-type, selector-no-qualifying-type
 
 //
+// Modify font of content to `font-family-serif`
+//
+main {
+    font-family: $font-family-serif;
+}
+
+//
 // Automatically style Markdown-based tables like a Bootstrap `.table`.
 //
 
