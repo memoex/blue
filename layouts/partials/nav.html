@@ -5,7 +5,13 @@
     <div class="navbar-nav-scroll">
         <ul class="navbar-nav bd-navbar-nav flex-row">
         {{ range .Site.Menus.main }}
-            <li class="nav-item">
+            {{ if eq $.Kind "home" }}
+                {{ $.Scratch.Set "active" ($.IsMenuCurrent "main" .) }}
+            {{ else }}
+                {{ $.Scratch.Set "active" (eq .Identifier $.Type) }}
+            {{ end }}
+            {{ $active := $.Scratch.Get "active" }}
+            <li class="nav-item {{ if $active }}active{{end}}">
                 <a class="nav-link" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
             </li>
         {{ end  }}

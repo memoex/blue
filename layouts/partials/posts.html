@@ -6,7 +6,7 @@
     {{ $.Scratch.Set "posts" .Data.Pages }}
 {{ end }}
 
-{{ $posts := $.Scratch.Get "posts" }}
+{{ $posts := (.Paginate ($.Scratch.Get "posts")).Pages }}
 
 <main>
     <div class="p-0 container-fluid rounded">
@@ -29,3 +29,5 @@
         {{- end }}
     </div>
 </main>
+
+{{ partial "pagination" . }}

@@ -1,0 +1,27 @@
+{{ if gt .Paginator.TotalPages 1 }}
+
+{{ $.Scratch.Set "current" .Paginator.PageNumber }}
+
+<nav class="row justify-content-center pb-5">
+    <ul class="nav">
+        {{if .Paginator.HasPrev }}
+        <li class="nav-item px-3">
+            <a class="btn btn-light" href="{{ .Paginator.Prev.URL }}">Previous</a>
+        </li>
+        {{ end }}
+        {{ range .Paginator.Pagers }}
+        <li class="nav-item px-1">
+            <a class="btn {{ if eq ($.Scratch.Get "current") .PageNumber }}disabled btn-dark{{ else }}btn-light{{ end }}" href="{{ .URL }}">
+            {{ .PageNumber }}
+            </a>
+        </li>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+        <li class="nav-item px-3">
+            <a class="btn btn-light" href="{{ .Paginator.Next.URL }}">Next</a>
+        </li>
+        {{ end }}
+    </ul>
+</nav>
+
+{{ end }}
