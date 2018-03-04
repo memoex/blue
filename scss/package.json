@@ -1,0 +1,13 @@
+{
+  "name": "scss",
+  "version": "1.0.0",
+  "description": "compile scss to css with node-sass",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run watch",
+    "build-css": "node-sass --source-map ../static/css --output-style=compressed bootstrap-docs/bootstrap-docs.scss ../static/css/bootstrap-docs.min.css && node-sass --source-map ../static/css --output-style= material/materialize.scss ../static/css/material.min.css",
+    "watch": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "author": "Mr.Blue",
+  "license": "MIT"
+}
