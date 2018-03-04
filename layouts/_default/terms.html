@@ -1,0 +1,28 @@
+{{ define "main" -}}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-xl-4 py-5">
+            <div class="px-0 container-fluid">
+                <div class="card col">
+                  <div class="card-body">
+                      <h4 class="card-title mt-3">{{ .Title }}</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                  {{ $data := .Data }}
+                  {{ range $key, $value := .Data.Terms.Alphabetical }}
+                  <li class="list-group-item p-0 rounded">
+                      <a class="col btn py-2 px-3" href="{{ $.Site.LanguagePrefix }}/{{ $data.Plural }}/{{ $value.Name | urlize }}">
+                          <div class="d-flex my-1 justify-content-between align-items-center">
+                              {{ $value.Name }}
+                              <span class="badge badge-secondary badge-pill">{{ $value.Count }}</span>
+                          </div>
+                      </a>
+                  </li>
+                  {{ end }}
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{- end }}
