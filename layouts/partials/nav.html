@@ -11,7 +11,7 @@
                 {{ $.Scratch.Set "active" (eq .Identifier $.Type) }}
             {{ end }}
             {{ $active := $.Scratch.Get "active" }}
-            <li class="nav-item {{ if $active }}active{{end}}">
+            <li class="px-1 nav-item {{ if $active }}active{{end}}">
                 <a class="nav-link" href="{{ .URL | absLangURL  }}">{{ .Pre  }}<span>{{ .Name  }}</span></a>
             </li>
         {{ end  }}

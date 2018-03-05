@@ -168,3 +168,10 @@
   color: rgba(0, 0, 0, .85);
   background-color: transparent;
 }
+
+.bd-sidebar .nav > li:hover,
+.bd-sidebar .nav > .active,
+.bd-sidebar .nav > .active:hover {
+  background-color: rgba(0, 0, 0, .05);
+}
+
