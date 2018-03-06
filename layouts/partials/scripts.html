@@ -5,6 +5,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js" integrity="sha256-meF2HJJ2Tcruwz3z4XcxYDRMxKprjdruBHc3InmixCQ=" crossorigin="anonymous"></script>
+<script>
+$('pre').each(function(i, l){
+    var btn = $('<button class="btn btn-light btn-copycode" title data-original-title="Copy to clipboard"><i class="fa fa-paste"></i></button>')
+    l.prepend(btn[0])
+})
+var clipboard = new ClipboardJS('.btn-copycode', {
+    target: function(trigger) {
+        return trigger.nextElementSibling
+    }
+})
+
+    clipboard.on('success', function(e){
+        e.clearSelection()
+        $(e.trigger).find("i").each(function(){
+            $(this).removeClass('fa-paste')
+            $(this).addClass('fa-check')
+        })
+    })
+</script>
+
 <!-- highlight.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js" integrity="sha256-HHSLUGB2us1mDkYuEDaK0mDZ6T/ugh5qqtGynscVWHU=" crossorigin="anonymous"></script>
