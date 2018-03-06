@@ -1,5 +1,7 @@
-<div class="col-12 col-xl-10 col-lg-10 container-fluid mx-0 px-0">
-    <img class="col mt-5 px-0 rounded" src="{{ .Get 0 }}" />
+<div class="col-12 col-xl-9 col-lg-12 container-fluid mx-0 px-0">
+    <a href="{{ .Get 0 }}" data-fancybox="gallery" data-caption="{{ .Get 1 }}">
+        <img class="col mt-5 px-0 rounded" src="{{ .Get 0 }}" />
+    </a>
 
     {{ if len .Params | eq 2 }}
     <p class='mb-5 mt-2 text-center font-weight-bold'>{{ .Get 1 }}</p>

@@ -85,6 +85,11 @@ main {
   }
 
   > h3 {
+      border-bottom: 1px solid $gray-400;
+      padding-bottom: 3px;
+  }
+
+  > h3 {
     margin-top: 1.5rem;
   }
 
@@ -93,7 +98,7 @@ main {
     margin-bottom: .25rem;
   }
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     > ul,
     > ol,
     > p {
