@@ -2,29 +2,54 @@
 
 <!-- Bootstrap v4-beta2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js" integrity="sha256-pS96pU17yq+gVu4KBQJi38VpSuKN7otMrDQprzf/DWY=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js" integrity="sha256-meF2HJJ2Tcruwz3z4XcxYDRMxKprjdruBHc3InmixCQ=" crossorigin="anonymous"></script>
 <script>
+/*
+ * You must dispose tooltip and then change the tooltip text
+ * The function `updateTitleContent` in tooltip.js's document doesn't work
+ */
+function tooltip(obj, text){
+    obj.tooltip('dispose')
+    obj.tooltip({
+        title: text,
+        boundary: 'viewport',
+        trigger: 'hover'
+    })
+    return obj
+}
+
+/* Give each code block a copy button */
 $('pre').each(function(i, l){
-    var btn = $('<button class="btn btn-light btn-copycode" title data-original-title="Copy to clipboard"><i class="fa fa-paste"></i></button>')
+
+    var btn = $('{{ partial "clipboard" . }}').hide()
     l.prepend(btn[0])
+
+    /* Update tooltip when hover the code block */
+    $(l).hover(function(){
+        btn.show()
+        tooltip(btn, 'Copy to clipboard')
+    }, function(){
+        btn.fadeOut(200)
+    })
 })
+
+
+/* Give button copy functionality */
 var clipboard = new ClipboardJS('.btn-copycode', {
     target: function(trigger) {
         return trigger.nextElementSibling
     }
 })
 
-    clipboard.on('success', function(e){
-        e.clearSelection()
-        $(e.trigger).find("i").each(function(){
-            $(this).removeClass('fa-paste')
-            $(this).addClass('fa-check')
-        })
-    })
+/* Tell user the code has been copied */
+clipboard.on('success', function(e){
+    e.clearSelection()
+    tooltip($(e.trigger), 'Copied').tooltip('show')
+})
 </script>
 
 <!-- highlight.js -->
