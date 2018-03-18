@@ -1,7 +1,9 @@
 {{ if or ( eq .Kind "page" ) ( eq .Kind "section" ) }}
     {{ $.Scratch.Set "posts" (where .Site.RegularPages "Section" .Section) }}
 {{ else if eq .Kind "home" }}
-    {{ $.Scratch.Set "posts" (where .Site.RegularPages "Section" "post") }}
+    {{ $home_show := where .Site.RegularPages "Section" "post" }}
+    {{ $home_show := $home_show | union (where .Site.RegularPages ".Params.post" true) }}
+    {{ $.Scratch.Set "posts" $home_show }}
 {{ else }}
     {{ $.Scratch.Set "posts" .Data.Pages }}
 {{ end }}
