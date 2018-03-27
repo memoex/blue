@@ -25,7 +25,9 @@ pre > .btn-copycode {
 }
 
 .MathJax_Display {
+    font-size: 1.2em;
     text-align: left !important;
-    margin: 0.6em 2em !important;
-    overflow: scroll;
+    margin: 0em 2em !important;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
