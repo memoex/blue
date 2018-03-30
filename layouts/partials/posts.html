@@ -12,7 +12,7 @@
 
 <main>
     <div class="p-0 container-fluid rounded">
-        {{ range $posts -}}
+        {{ range $posts.ByDate.Reverse -}}
             <div class="col-12">
                 <h1 class="bd-title">
                     <a class="text-dark bd-title" href="{{ .Permalink }}">{{ .Title }}</a>

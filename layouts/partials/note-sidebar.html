@@ -25,7 +25,7 @@
                 {{ .Title }}
             </a>
             <ul class="p-2 nav bd-sidenav">
-                {{ range .Pages.Reverse }}
+                {{ range .Pages }}
                 <li class="{{ if eq .Permalink $link }}active{{ end }}" >
                     <a href="{{ .Permalink }}">
                     {{ .Title }}
