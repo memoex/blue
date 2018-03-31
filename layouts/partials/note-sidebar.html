@@ -19,7 +19,7 @@
 
     {{ define "section-tree" }}
     {{ $link := .link }}
-    {{ range (sort .root.Sections "Name") }}
+    {{ range .root.Sections }}
         <div class="bd-toc-item active">
             <a class="bd-toc-link" href="{{ .Permalink }}">
                 {{ .Title }}
