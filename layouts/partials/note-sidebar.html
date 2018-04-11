@@ -12,30 +12,32 @@
     <nav id="bd-docs-nav" class="collapse bd-links">
         {{ range $home.Sections }}
             {{ if eq .Section $section }}
+            <div class="bd-toc-item active">
             {{ template "section-tree" (dict "root" . "link" ($.Scratch.Get "link") ) }}
+            </div>
             {{ end }}
         {{ end }}
     </nav>
 
     {{ define "section-tree" }}
     {{ $link := .link }}
-    {{ range .root.Sections }}
-        <div class="bd-toc-item active">
-            <a class="bd-toc-link" href="{{ .Permalink }}">
-                {{ .Title }}
-            </a>
-            <ul class="p-2 nav bd-sidenav">
-                {{ range .Pages }}
-                <li class="{{ if eq .Permalink $link }}active{{ end }}" >
-                    <a href="{{ .Permalink }}">
+        {{ range .root.Sections }}
+            <div class="bd-toc-item active">
+                <a class="bd-toc-link" href="{{ .Permalink }}">
                     {{ .Title }}
-                    </a>
-                </li>
-                {{ end }}
-                <ul class="active">
-                {{ template "section-tree" (dict "root" . "link" $link ) }}
-                </ul>
-            </ul>
-        </div>
+                </a>
+                    {{ template "section-tree" (dict "root" . "link" $link ) }}
+            </div>
+        {{ end }}
+        {{ if .root.Pages }}
+        <ul class="p-2 nav bd-sidenav">
+            {{ range .root.Pages }}
+            <li class="{{ if eq .Permalink $link }}active{{ end }}" >
+                <a href="{{ .Permalink }}">
+                {{ .Title }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
         {{ end }}
     {{ end }}
