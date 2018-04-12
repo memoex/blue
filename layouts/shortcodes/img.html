@@ -1,9 +1,11 @@
+{{- $url := .Get 0 -}}
+{{- $title := .Get 1 -}}
 <div class="col-12 col-xl-9 col-lg-12 container-fluid mx-0 px-0 mx-auto">
-    <a class="d-block mx-auto" href="{{ .Get 0 }}" data-fancybox="gallery" data-caption="{{ .Get 1 }}">
-        <img class="mw-100 mt-2 px-0 rounded d-block mx-auto" src="{{ .Get 0 }}" />
+    <a class="d-block mx-auto" href="{{ $url }}" data-fancybox="gallery" data-caption="{{ $title }}">
+        <img class="mw-100 mt-2 px-0 rounded d-block mx-auto" src="{{ $url }}" />
     </a>
 
     {{ if len .Params | eq 2 }}
-    <p class='mb-5 mt-2 text-center font-weight-bold'>{{ .Get 1 }}</p>
+    <p class='mb-5 mt-2 text-center font-weight-bold'>{{ $title }}</p>
     {{ end }}
 </div>

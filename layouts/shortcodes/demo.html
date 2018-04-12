@@ -1,0 +1,12 @@
+{{- $path := .Get 0 -}}
+{{- $filePath := (print "/static/" $path ) -}}
+
+{{- $files := readDir $filePath -}}
+{{ range $files }}
+    {{ $url := (print $path "/" .Name) }}
+    <div class="col-12 col-xl-9 col-lg-12 container-fluid mx-0 px-0 my-2 border">
+        <a class="d-block mx-auto" href="{{ $url }}" data-fancybox="gallery" data-caption="{{ .Name }}">
+            <img class="mw-100 mt-2 px-0 rounded d-block mx-auto" src="{{ $url }}" />
+        </a>
+    </div>
+{{ end }}
