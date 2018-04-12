@@ -6,9 +6,7 @@ A responsive theme inspired by documentation site of Bootstrap for Hugo blog fra
 
 Blog demo: https://memoex.github.io
 
-![](https://i.imgur.com/0r7WvUe.png)
-
-![](https://i.imgur.com/lbnje7Q.png)
+![](https://i.imgur.com/KD1PetE.png)
 
 ## Features
 
@@ -64,7 +62,7 @@ The other one is to change your configuration file `config.toml`. Change the val
 theme = "blue"
 ```
 
-Then you dont't need an extra `-t` flag anymore.
+Then you don't need an extra `-t` flag anymore.
 
 ### Configuration
 
