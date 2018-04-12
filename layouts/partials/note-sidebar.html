@@ -23,7 +23,7 @@
     {{ define "section-tree" }}
     {{ $link := .link }}
         {{ range .root.Sections }}
-            <div class="bd-toc-item active">
+            <div class="pl-2 bd-toc-item active">
                 <a class="bd-toc-link" href="{{ .Permalink }}">
                     {{ .Title }}
                 </a>
@@ -31,7 +31,7 @@
             </div>
         {{ end }}
         {{ if .root.Pages }}
-        <ul class="p-2 nav bd-sidenav">
+        <ul class="pr-2 nav bd-sidenav">
             {{ range .root.Pages }}
             <li class="{{ if eq .Permalink $link }}active{{ end }}" >
                 <a href="{{ .Permalink }}">
