@@ -20,6 +20,7 @@ Blog demo: https://memoex.github.io
 - [x] Beautiful [fonts](http://localhost:1313/note/tech/css/) and [material color](https://material.io/guidelines/style/color.html#color-color-palette).
 - [x] Disqus comment.
 - [x] Tags.
+- [x] Show last modify date after your modification.
 - [ ] Blog searching.
 
 
