@@ -10,15 +10,16 @@ Blog demo: https://memoex.github.io
 
 ## Features
 
+- [x] Responsive.
 - [x] Nice and convenient sidebar.
 - [x] TOC (table of content).
-- [x] Responsive.
 - [x] Syntax Highlighting.
 - [x] Copy code block to clipboard with single click.
-- [x] Tags.
+- [x] MathJax.
 - [x] Show images with fancybox.
 - [x] Beautiful [fonts](http://localhost:1313/note/tech/css/) and [material color](https://material.io/guidelines/style/color.html#color-color-palette).
-- [x] MathJax.
+- [x] Disqus comment.
+- [x] Tags.
 - [ ] Blog searching.
 
 
